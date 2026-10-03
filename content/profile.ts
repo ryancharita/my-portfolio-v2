@@ -15,6 +15,14 @@ export const profile = {
   },
 } as const;
 
+// Each id matches a section's id on the page.
+export const nav = [
+  { label: "Home", id: "home" },
+  { label: "Work", id: "work" },
+  { label: "About", id: "about" },
+  { label: "Contact", id: "contact" },
+] as const;
+
 export type LeadSegment = { text: string; tech?: boolean };
 
 export const hero = {
@@ -118,6 +126,11 @@ export const capabilities = {
       ],
     },
   ],
+};
+
+export const contact = {
+  headline: "Have a product that needs building?",
+  body: "I'm taking on new projects. Send a short note about what you're building.",
 };
 
 export type TimelineEntry = {

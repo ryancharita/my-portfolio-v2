@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/section-header";
 
 export function FeaturedWork() {
   return (
-    <section id="work" className="scroll-mt-8">
+    <section id="work">
       <div className="mx-auto max-w-[1120px] px-6 pb-24 sm:px-8">
         <SectionHeader eyebrow={work.eyebrow} title={work.title} intro={work.intro} />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

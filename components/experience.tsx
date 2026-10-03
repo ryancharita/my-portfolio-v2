@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/section-header";
 
 export function Experience() {
   return (
-    <section id="about" className="scroll-mt-8">
+    <section id="about">
       <div className="mx-auto max-w-[1120px] px-6 pb-24 sm:px-8">
         <SectionHeader
           eyebrow={experience.eyebrow}

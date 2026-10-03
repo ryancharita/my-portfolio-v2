@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/section-header";
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="scroll-mt-8">
+    <section id="capabilities">
       <div className="mx-auto max-w-[1120px] px-6 pb-24 sm:px-8">
         <SectionHeader
           eyebrow={capabilities.eyebrow}

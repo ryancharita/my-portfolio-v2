@@ -5,7 +5,7 @@ const button =
 
 export function Hero() {
   return (
-    <section className="relative isolate">
+    <section id="home" className="relative isolate">
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
 
       <div className="mx-auto flex max-w-[1120px] flex-col items-start gap-8 px-6 pt-24 pb-24 sm:px-8 sm:pt-32">
