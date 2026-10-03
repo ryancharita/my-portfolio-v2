@@ -76,3 +76,46 @@ export const work = {
     },
   ] satisfies Project[],
 };
+
+export const capabilities = {
+  eyebrow: "Capabilities",
+  title: "Across the stack",
+  intro: "From interface to database to deployment — the tools I use to ship production systems.",
+  groups: [
+    {
+      name: "Frontend",
+      skills: [
+        "React",
+        "Next.js",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "Tailwind CSS",
+        "HTML5 & CSS3",
+      ],
+    },
+    {
+      name: "Backend",
+      skills: [
+        "Node.js (Express, NestJS)",
+        "REST APIs",
+        "WebSockets",
+        "PostgreSQL",
+        "MongoDB",
+        "Supabase",
+        "Prisma & Drizzle ORM",
+      ],
+    },
+    {
+      name: "Tools & Deployment",
+      skills: [
+        "Docker",
+        "Git",
+        "Vercel",
+        "Jest",
+        "React Testing Library",
+        "ESLint & Prettier",
+      ],
+    },
+  ],
+};
