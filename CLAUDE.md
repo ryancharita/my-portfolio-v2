@@ -49,3 +49,12 @@ This Next.js version is newer than most training data. Before using any Next.js 
 - **Theming**: the theme is chosen by `data-theme` on `<html>` (set to `dark` in `app/layout.tsx`), not by `prefers-color-scheme`. Because the tokens swap per theme, components rarely need Tailwind's `dark:` variant, and that variant is not wired to `data-theme`.
 - **Path alias**: `@/*` resolves to the repo root (e.g. `@/app/...`).
 - Static assets go in `public/`.
+
+## Deployment (GitHub Pages)
+
+The site deploys to https://ryancharita.github.io/my-portfolio-v2/ via `.github/workflows/deploy.yml` on every push to `main`. `next.config.ts` sets `output: "export"`, so `pnpm build` writes a static site to `out/`. This has consequences:
+
+- No server-only features: no route handlers that read the request, cookies, headers, rewrites, redirects, or dynamic routes without `generateStaticParams()`. Check `node_modules/next/dist/docs/01-app/02-guides/static-exports.md` before using anything server-side.
+- `basePath` comes from `NEXT_PUBLIC_BASE_PATH` (set to `/my-portfolio-v2` in CI, empty locally). `next/link` applies it automatically, but `next/image` `src` and plain `<img>`/`<a>` paths to `public/` files do **not**, so prefix them with `process.env.NEXT_PUBLIC_BASE_PATH`.
+- Images are `unoptimized`, so size and crop screenshots before adding them to `public/`.
+- To reproduce the CI build locally, run it from PowerShell: `$env:NEXT_PUBLIC_BASE_PATH='/my-portfolio-v2'; pnpm build`. Git Bash rewrites the `/my-portfolio-v2` path into a Windows path and the build fails.
