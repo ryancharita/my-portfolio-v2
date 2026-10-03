@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/footer";
+import { GridSpotlight } from "@/components/grid-spotlight";
 import { InlineScript } from "@/components/inline-script";
 import { profile, site } from "@/content/profile";
 import { Nav } from "@/components/nav";
@@ -51,7 +52,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <InlineScript html={themeScript} />
       </head>
-      <body className="min-h-full flex flex-col">
+      {/* relative + isolate: GridSpotlight spans the whole body and sits behind its content. */}
+      <body className="relative isolate min-h-full flex flex-col">
+        <GridSpotlight />
         <Nav />
         {children}
         <Footer />

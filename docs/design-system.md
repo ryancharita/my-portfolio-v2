@@ -29,7 +29,7 @@ Dark is the default theme; light mirrors it.
 ## Layout and patterns
 
 - **Page:** max width 1120px, `space-8` gutters (`space-6` on mobile), `space-24` between sections. Section header = `eyebrow` → `space-3` → `title` → `body` intro in `ink-muted`, then `space-12`.
-- **Background grid:** a 1px `line` grid at `space-12` (48px) pitch behind the hero, fading out toward the bottom. On mouse and trackpad devices, a mint copy of the grid shows in a 220px circle around the pointer (the spotlight).
+- **Background grid:** a 1px `line` grid at `space-12` (48px) pitch across the whole page, set on the page background so it scrolls with the content. Cards, the nav and the contact panel sit on opaque `surface-raised` and cover it. On mouse and trackpad devices, a mint copy of the grid shows in a 220px circle around the pointer (the spotlight), anywhere on the page.
 - **Hero:** status pill → name → lead → two buttons → a stats row of three (`stat-label` over a `card-title`-weight value), divided by hairlines.
 - **Status pill:** `radius-full`, `accent-soft` fill, 1px accent border at 30%, a 6px `accent` dot with `accent-glow` and a slow ping ring, and the label `AVAILABLE FOR NEW PROJECTS` in `eyebrow` accent.
 - **Project card:** `surface-raised`, `radius-lg`, 1px `line` border; a 16:10 screenshot on top (`radius-sm`), then `card-title`, two lines of `small` description in `ink-muted`, `code` tech tags, and a round ↗ icon button at the top-right of the text area. Cards sit three across with `space-4` gaps. On hover the border goes to `line-strong`, the screenshot zooms to 104% inside its frame, and the ↗ turns accent and nudges 2px up-right.
@@ -43,7 +43,7 @@ Motion is quiet and one-directional. Things fade and settle into place; they nev
 - **State changes:** 150ms ease for colour and border changes: links, buttons, nav items and card borders.
 - **Hero entrance:** on load, the status pill, name, lead, buttons and each stat fade in one after another. Each one goes from 0 opacity, a 6px blur and 8px down to rest over 700ms on `ease-out-soft`, with 90ms between items.
 - **Scroll reveal:** section headers, project cards, capability cards, timeline rows and the contact panel fade up 24px as they enter the viewport. The motion is tied to scroll position, not time, and finishes by 60% of the way in. Where the browser lacks scroll-driven animation, content simply appears.
-- **Spotlight:** the hero's pointer spotlight fades in over 500ms when the pointer enters and out when it leaves. It's mouse and trackpad only, never on touch screens.
+- **Spotlight:** the pointer spotlight fades in over 500ms when the pointer enters the page and out when it leaves. It stays under the pointer while the page scrolls. It's mouse and trackpad only, never on touch screens.
 - **Status dot:** a ring expands from the dot to 3× and fades out every 2.4s. It's the only looping motion on the page.
 - **Hover:** inside a card, only its contents move (the screenshot zoom, the ↗ nudge, 300–500ms). The card itself stays put.
 - **Don't:** lift cards on hover, add bounce or spring easing, animate layout or size, loop anything other than the status dot, or add motion that has no reduced-motion fallback.

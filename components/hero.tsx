@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import { hero, profile } from "@/content/profile";
-import { HeroSpotlight } from "@/components/hero-spotlight";
 
 const button =
   "inline-flex items-center justify-center rounded-sm px-4 py-2.5 text-small transition-colors duration-150 ease-out";
@@ -11,10 +10,7 @@ const step = (i: number) => ({ "--i": i }) as CSSProperties;
 
 export function Hero() {
   return (
-    <section id="home" className="relative isolate">
-      <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
-      <HeroSpotlight />
-
+    <section id="home">
       <div className="mx-auto flex max-w-[1120px] flex-col items-start gap-8 px-6 pt-24 pb-24 sm:px-8 sm:pt-32">
         <p
           className={`${enter} inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-3 py-1 font-mono text-eyebrow uppercase text-accent`}

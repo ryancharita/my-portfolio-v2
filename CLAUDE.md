@@ -17,7 +17,7 @@ Portfolio site (v2) for Ryan Joshua Charita, full stack developer. Next.js 16.3,
 - Motion follows the **Motion** and **Motion tokens** sections of the design doc (all defined in `app/globals.css`):
   - Hero items enter with `motion-safe:animate-enter` plus `style={{ "--i": n }}` for an n × 90ms stagger. `--animate-enter` sits in `@theme inline` so `var(--i)` resolves per element.
   - Below-the-fold blocks get `reveal`, a CSS scroll-driven fade-up with no JS. It no-ops where unsupported and for reduced motion.
-  - `HeroSpotlight` is a pointer-following mint grid glow.
+  - The 48px grid is the `body` background, so it covers the whole page. `GridSpotlight` (rendered in `app/layout.tsx` as a direct child of `<body>`) is a pointer-following mint glow on that grid. It must stay a direct child of `<body>` so it shares the grid's origin; otherwise the mint lines drift off the grid.
   - The status dot uses `animate-ping-slow`.
   - Project screenshots zoom inside their frame on hover.
   - Keep new motion behind `motion-safe:` / `prefers-reduced-motion`, and never lift or bounce cards.

@@ -157,16 +157,8 @@
   }
 }
 
-/* 1px line grid at 48px pitch behind the hero, fading out toward the bottom. */
-@utility bg-grid {
-  background-image:
-    linear-gradient(to right, var(--line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black 30%, transparent);
-}
-
-/* Mint copy of the grid, revealed in a circle around the pointer (--x/--y set by HeroSpotlight). */
+/* Mint copy of the page grid, revealed in a circle around the pointer (--x/--y set by GridSpotlight).
+   Same 48px pitch and document origin as the body grid, so the lines stay aligned. */
 @utility bg-grid-spotlight {
   background-image:
     linear-gradient(to right, color-mix(in srgb, var(--accent) 45%, transparent) 1px, transparent 1px),
@@ -188,8 +180,13 @@
     }
   }
 
+  /* 1px line grid at 48px pitch across the whole page; it scrolls with the content. */
   body {
-    background: var(--surface);
+    background-color: var(--surface);
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
     color: var(--ink);
     font-family: var(--font-sans);
   }
