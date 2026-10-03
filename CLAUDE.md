@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Portfolio site (v2) for Ryan Joshua Charita, full stack developer. Next.js 16.3, React 19.2, TypeScript, Tailwind CSS v4. `app/page.tsx` is still `create-next-app` boilerplate and is expected to be replaced.
+Portfolio site (v2) for Ryan Joshua Charita, full stack developer. Next.js 16.3, React 19.2, TypeScript, Tailwind CSS v4. Single-page site: `app/page.tsx` stacks the section components (only the hero exists so far).
 
 ## Design system
 
@@ -47,7 +47,8 @@ This Next.js version is newer than most training data. Before using any Next.js 
 - **App Router only**: routes live in `app/`. `app/layout.tsx` is the root layout and loads the Geist / Geist Mono fonts via `next/font/google` as CSS variables (`--font-geist-sans`, `--font-geist-mono`).
 - **Tailwind v4, CSS-first config**: there is no `tailwind.config.*`. Tailwind is loaded through `@import "tailwindcss"` in `app/globals.css` and the `@tailwindcss/postcss` plugin. Theme-dependent values (colours, shadows) are raw CSS variables set under `:root, [data-theme="dark"]` and `[data-theme="light"]`, then exposed as utilities through `@theme inline`. Static tokens (type scale, radius) live in a plain `@theme` block. Add new tokens there, not in a JS config.
 - **Theming**: the theme is chosen by `data-theme` on `<html>` (set to `dark` in `app/layout.tsx`), not by `prefers-color-scheme`. Because the tokens swap per theme, components rarely need Tailwind's `dark:` variant, and that variant is not wired to `data-theme`.
-- **Path alias**: `@/*` resolves to the repo root (e.g. `@/app/...`).
+- **Content vs. components**: all site copy (name, links, hero lead, stats, and later projects and experience) lives in typed constants in `content/`. Section components in `components/` import from there and hold no copy of their own. The source material is the v1 portfolio at `../nextjs-portfolio-template/Constants/` (`userinfo.js`, `projects.js`), with screenshots in its `styles/projects/` folder. Port facts from it, but rewrite the copy to the v2 voice.
+- **Path alias**: `@/*` resolves to the repo root (e.g. `@/content/profile`).
 - Static assets go in `public/`.
 
 ## Deployment (GitHub Pages)

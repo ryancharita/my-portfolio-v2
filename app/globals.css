@@ -105,6 +105,15 @@
   --text-code--font-weight: 400;
 }
 
+/* 1px line grid at 48px pitch behind the hero, fading out toward the bottom. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black 30%, transparent);
+}
+
 @layer base {
   body {
     background: var(--surface);
