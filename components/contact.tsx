@@ -10,7 +10,7 @@ export function Contact() {
   return (
     <section id="contact">
       <div className="mx-auto max-w-[1120px] px-6 pb-24 sm:px-8">
-        <div className="flex flex-col gap-8 rounded-lg border border-line bg-surface-raised p-6 sm:p-12">
+        <div className="reveal flex flex-col gap-8 rounded-lg border border-line bg-surface-raised p-6 sm:p-12">
           <div className="flex flex-col gap-3">
             <p className="font-mono text-eyebrow uppercase text-ink-faint">Contact</p>
             <h2 className="max-w-xl text-[30px]/[36px] font-semibold tracking-tight text-ink sm:text-headline">

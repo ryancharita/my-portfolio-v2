@@ -27,7 +27,7 @@ function Timeline({ entries }: { entries: TimelineEntry[] }) {
       {entries.map((entry) => (
         <li
           key={`${entry.org}-${entry.title}`}
-          className="grid gap-2 border-t border-line py-6 sm:grid-cols-[200px_1fr] sm:gap-8"
+          className="reveal grid gap-2 border-t border-line py-6 sm:grid-cols-[200px_1fr] sm:gap-8"
         >
           <p className="font-mono text-code uppercase text-ink-faint sm:pt-1">{entry.dates}</p>
           <div className="flex flex-col gap-1">

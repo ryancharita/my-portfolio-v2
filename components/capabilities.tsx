@@ -14,7 +14,7 @@ export function Capabilities() {
           {capabilities.groups.map((group, i) => (
             <li
               key={group.name}
-              className="flex flex-col gap-4 rounded-lg border border-line bg-surface-raised p-6 transition-colors duration-150 ease-out hover:border-line-strong"
+              className="reveal flex flex-col gap-4 rounded-lg border border-line bg-surface-raised p-6 transition-colors duration-150 ease-out hover:border-line-strong"
             >
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-card-title text-ink">{group.name}</h3>

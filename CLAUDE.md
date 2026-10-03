@@ -14,6 +14,13 @@ Portfolio site (v2) for Ryan Joshua Charita, full stack developer. Next.js 16.3,
 
 - Dark-first. Mint `accent` is the only colour, used once or twice per screen. The primary button is inverted (`bg-ink text-surface`), not mint.
 - Depth comes from 1px `border-line` borders, never shadows. Card hover changes the border to `line-strong`; nothing lifts or bounces. Transitions are 150ms ease on colour and border.
+- Motion (added beyond the original design doc, at the user's request; all defined in `app/globals.css`):
+  - Hero items enter with `motion-safe:animate-enter` plus `style={{ "--i": n }}` for an n × 90ms stagger. `--animate-enter` sits in `@theme inline` so `var(--i)` resolves per element.
+  - Below-the-fold blocks get `reveal`, a CSS scroll-driven fade-up with no JS. It no-ops where unsupported and for reduced motion.
+  - `HeroSpotlight` is a pointer-following mint grid glow.
+  - The status dot uses `animate-ping-slow`.
+  - Project screenshots zoom inside their frame on hover.
+  - Keep new motion behind `motion-safe:` / `prefers-reduced-motion`, and never lift or bounce cards.
 - Geist Mono is only for uppercase, tracked labels (`eyebrow`, `stat-label`, `code`), never for paragraphs.
 - Copy: first person, specific, numbers over adjectives, verb CTAs. No emoji, exclamation marks or "passionate".
 - Icons: Lucide-style 1.5px-stroke line icons in `currentColor`.
@@ -59,4 +66,5 @@ The site deploys to https://ryancharita.github.io/my-portfolio-v2/ via `.github/
 - No server-only features: no route handlers that read the request, cookies, headers, rewrites, redirects, or dynamic routes without `generateStaticParams()`. Check `node_modules/next/dist/docs/01-app/02-guides/static-exports.md` before using anything server-side.
 - `basePath` comes from `NEXT_PUBLIC_BASE_PATH` (set to `/my-portfolio-v2` in CI, empty locally). `next/link` applies it automatically, but `next/image` `src` and plain `<img>`/`<a>` paths to `public/` files do **not**, so prefix them with `process.env.NEXT_PUBLIC_BASE_PATH`.
 - Images are `unoptimized`, so size and crop screenshots before adding them to `public/`.
+- **Social preview:** `app/og.png/route.tsx` renders the 1200×630 share image with `next/og` at build time (`dynamic = "force-static"`). It's a route handler rather than `opengraph-image.tsx` so the export writes a real `og.png`: GitHub Pages sets Content-Type from the extension, and crawlers reject an extensionless file. Fonts come from the `geist` dev dependency's TTFs, since next/font only ships WOFF2. Metadata (`metadataBase`, OG/Twitter tags) is in `app/layout.tsx`, using `site` from `content/profile.ts`. `site.url` includes the base path.
 - To reproduce the CI build locally, run it from PowerShell: `$env:NEXT_PUBLIC_BASE_PATH='/my-portfolio-v2'; pnpm build`. Git Bash rewrites the `/my-portfolio-v2` path into a Windows path and the build fails.

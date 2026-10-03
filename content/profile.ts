@@ -1,6 +1,22 @@
 // Site copy, ported from the v1 portfolio (nextjs-portfolio-template/Constants/userinfo.js)
 // and rewritten to the v2 voice in docs/design-system.md.
 
+// Public URL of the deployed site (GitHub Pages project site, so it includes the base path).
+export const site = {
+  url: `https://ryancharita.github.io${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}`,
+  host: `ryancharita.github.io${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}`,
+  title: "Ryan Joshua Charita — Full stack developer",
+  description:
+    "Full stack developer with 6+ years building scalable, maintainable web applications with React, Next.js, Node.js and PostgreSQL. Available for new projects.",
+  // Rendered by app/og.png/route.tsx.
+  ogImage: {
+    url: "/og.png",
+    width: 1200,
+    height: 630,
+    alt: "Ryan Joshua Charita — Full stack developer",
+  },
+};
+
 export const profile = {
   name: "Ryan Joshua Charita",
   initials: "RJ",
