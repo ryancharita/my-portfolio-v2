@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { nav, profile } from "@/content/profile";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const sectionIds = nav.map((item) => item.id);
 
@@ -18,7 +19,8 @@ export function Nav() {
           {nav.map((item) => {
             const isActive = active === item.id;
             return (
-              <li key={item.id}>
+              // RJ already links home, so Home is dropped on phones to fit the theme toggle.
+              <li key={item.id} className={item.id === "home" ? "hidden sm:block" : undefined}>
                 <a
                   href={`#${item.id}`}
                   aria-current={isActive ? "location" : undefined}
@@ -32,6 +34,9 @@ export function Nav() {
               </li>
             );
           })}
+          <li className="ml-2 border-l border-line pl-2">
+            <ThemeToggle className="inline-flex size-8 items-center justify-center rounded-sm text-ink-muted transition-colors duration-150 ease-out hover:bg-surface-overlay hover:text-ink" />
+          </li>
         </ul>
       </nav>
     </header>

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* light: variant for the rare markup that must differ by theme (tokens handle colour). */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
 /* Design tokens — see docs/design-system.md. Dark is the default theme;
    set data-theme="light" on <html> to switch. */
 

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/footer";
+import { InlineScript } from "@/components/inline-script";
 import { Nav } from "@/components/nav";
+import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,8 +27,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="dark"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <InlineScript html={themeScript} />
+      </head>
       <body className="min-h-full flex flex-col">
         <Nav />
         {children}

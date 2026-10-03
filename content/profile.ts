@@ -140,7 +140,7 @@ export type TimelineEntry = {
   summary?: string;
 };
 
-// Newest first. Dates copied as-is from v1 — confirm overlaps before relying on them.
+// Newest first. Overlapping dates are intentional (concurrent roles).
 export const experience = {
   eyebrow: "Experience",
   title: "Where I've worked",
