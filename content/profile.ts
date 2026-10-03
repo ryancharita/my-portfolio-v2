@@ -119,3 +119,59 @@ export const capabilities = {
     },
   ],
 };
+
+export type TimelineEntry = {
+  dates: string;
+  title: string;
+  org: string;
+  summary?: string;
+};
+
+// Newest first. Dates copied as-is from v1 — confirm overlaps before relying on them.
+export const experience = {
+  eyebrow: "Experience",
+  title: "Where I've worked",
+  intro: "Six years across product companies and client teams, from junior developer to team lead.",
+  roles: [
+    {
+      dates: "May 2021 — Jul 2025",
+      title: "Mid-level Software Engineer",
+      org: "Fresh Clinics",
+      summary: "Built and maintained the web app and mobile API behind the clinic platform.",
+    },
+    {
+      dates: "May 2023 — Oct 2024",
+      title: "Senior Front-end Developer",
+      org: "Digital Transformation",
+      summary: "Led and mentored the front-end team while delivering for an international client.",
+    },
+    {
+      dates: "May 2021 — May 2023",
+      title: "Mid-level Front-end Developer Lead",
+      org: "Digital Transformation",
+      summary: "Set up the team at a new office: onboarding, mentoring and technical workflows.",
+    },
+    {
+      dates: "Aug 2019 — May 2021",
+      title: "Junior Software Engineer",
+      org: "Payruler",
+      summary: "Helped build Payruler v2, a full rebuild focused on performance and scale.",
+    },
+    {
+      dates: "Aug 2019 — May 2021",
+      title: "Junior Front-end Developer",
+      org: "Digital Transformation",
+      summary: "Built front-end components for client web applications as an outsourced developer.",
+    },
+  ] satisfies TimelineEntry[],
+  education: {
+    eyebrow: "Education",
+    entries: [
+      {
+        dates: "2019",
+        title: "BS Computer Science",
+        org: "Northwest Samar State University",
+      },
+    ] satisfies TimelineEntry[],
+  },
+};
