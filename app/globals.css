@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens — see docs/design-system.md. Dark is the default theme;
+   set data-theme="light" on <html> to switch. */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #050607;
+  --surface-raised: #0e1012;
+  --surface-overlay: #16191c;
+  --line: #ffffff1a;
+  --line-strong: #3a3f44;
+  --ink: #f5f6f7;
+  --ink-muted: #a0a4a8;
+  --ink-faint: #7d8287;
+  --accent: #5cf2c8;
+  --accent-soft: #0e2a23;
+  --on-accent: #04110d;
+  --accent-glow: 0 0 12px 2px #5cf2c859;
+  --focus-ring: 0 0 0 2px #050607, 0 0 0 4px #5cf2c8;
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+  --surface: #fafafa;
+  --surface-raised: #ffffff;
+  --surface-overlay: #f1f2f3;
+  --line: #0b0d0e14;
+  --line-strong: #c9ced2;
+  --ink: #0b0d0e;
+  --ink-muted: #565c62;
+  --ink-faint: #63696f;
+  --accent: #08785a;
+  --accent-soft: #dcf6ee;
+  --on-accent: #ffffff;
+  --accent-glow: 0 0 0 3px #08785a26;
+  --focus-ring: 0 0 0 2px #fafafa, 0 0 0 4px #08785a;
+}
+
+/* Theme-dependent tokens: inline so utilities resolve the live CSS variable. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-link: var(--accent);
+
+  --shadow-accent-glow: var(--accent-glow);
+  --shadow-focus-ring: var(--focus-ring);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Spacing uses Tailwind's default 4px scale, so space-N in the design system = p-N / gap-N. */
+@theme {
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+
+  /* Sans */
+  --text-display: 60px;
+  --text-display--line-height: 60px;
+  --text-display--font-weight: 700;
+  --text-display--letter-spacing: -0.025em;
+  --text-headline: 36px;
+  --text-headline--line-height: 40px;
+  --text-headline--font-weight: 600;
+  --text-headline--letter-spacing: -0.025em;
+  --text-title: 30px;
+  --text-title--line-height: 36px;
+  --text-title--font-weight: 600;
+  --text-title--letter-spacing: -0.025em;
+  --text-card-title: 18px;
+  --text-card-title--line-height: 28px;
+  --text-card-title--font-weight: 600;
+  --text-lead: 20px;
+  --text-lead--line-height: 28px;
+  --text-lead--font-weight: 400;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-body--font-weight: 400;
+  --text-small: 14px;
+  --text-small--line-height: 20px;
+  --text-small--font-weight: 500;
+
+  /* Mono — pair with font-mono uppercase */
+  --text-eyebrow: 11px;
+  --text-eyebrow--line-height: 16px;
+  --text-eyebrow--font-weight: 500;
+  --text-eyebrow--letter-spacing: 0.3em;
+  --text-stat-label: 10px;
+  --text-stat-label--line-height: 14px;
+  --text-stat-label--font-weight: 500;
+  --text-stat-label--letter-spacing: 0.2em;
+  --text-code: 13px;
+  --text-code--line-height: 20px;
+  --text-code--font-weight: 400;
+}
+
+@layer base {
+  body {
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-sans);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
 }
