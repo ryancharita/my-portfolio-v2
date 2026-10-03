@@ -40,3 +40,39 @@ export const hero = {
     { label: "Focus", value: "Full stack" },
   ],
 } as const;
+
+export type Project = {
+  name: string;
+  description: string;
+  tech: string[];
+  /** Path under public/, 16:10. */
+  image: string;
+  href?: string;
+};
+
+export const work = {
+  eyebrow: "Featured work",
+  title: "Selected work",
+  intro: "Production platforms I've built and maintained, from payroll to clinic operations.",
+  projects: [
+    {
+      name: "Payruler",
+      description: "The most complete payroll and HRMS platform in the Philippines.",
+      tech: ["php", "node.js"],
+      image: "/projects/payruler.webp",
+    },
+    {
+      name: "Fleet Management System",
+      description: "Tracks vehicles, drivers, rentals and fuel for Cebu City taxi fleets.",
+      tech: ["react", "graphql", "postgresql"],
+      image: "/projects/fleet-management.webp",
+    },
+    {
+      name: "Fresh Clinics",
+      description: "Web app and mobile API for cosmetic nurses and clinic owners.",
+      tech: ["vue.js", "node.js", "mongodb"],
+      image: "/projects/fresh-clinics.webp",
+      href: "https://app.freshclinics.com.au/",
+    },
+  ] satisfies Project[],
+};
