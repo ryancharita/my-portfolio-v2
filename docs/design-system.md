@@ -29,13 +29,24 @@ Dark is the default theme; light mirrors it.
 ## Layout and patterns
 
 - **Page:** max width 1120px, `space-8` gutters (`space-6` on mobile), `space-24` between sections. Section header = `eyebrow` → `space-3` → `title` → `body` intro in `ink-muted`, then `space-12`.
-- **Background grid:** a 1px `line` grid at `space-12` (48px) pitch behind the hero, fading out toward the bottom.
+- **Background grid:** a 1px `line` grid at `space-12` (48px) pitch behind the hero, fading out toward the bottom. On mouse and trackpad devices, a mint copy of the grid shows in a 220px circle around the pointer (the spotlight).
 - **Hero:** status pill → name → lead → two buttons → a stats row of three (`stat-label` over a `card-title`-weight value), divided by hairlines.
-- **Status pill:** `radius-full`, `accent-soft` fill, 1px accent border at 30%, a 6px `accent` dot with `accent-glow`, and the label `AVAILABLE FOR NEW PROJECTS` in `eyebrow` accent.
-- **Project card:** `surface-raised`, `radius-lg`, 1px `line` border; a 16:10 screenshot on top (`radius-sm`), then `card-title`, two lines of `small` description in `ink-muted`, `code` tech tags, and a round ↗ icon button at the top-right of the text area. Cards sit three across with `space-4` gaps.
+- **Status pill:** `radius-full`, `accent-soft` fill, 1px accent border at 30%, a 6px `accent` dot with `accent-glow` and a slow ping ring, and the label `AVAILABLE FOR NEW PROJECTS` in `eyebrow` accent.
+- **Project card:** `surface-raised`, `radius-lg`, 1px `line` border; a 16:10 screenshot on top (`radius-sm`), then `card-title`, two lines of `small` description in `ink-muted`, `code` tech tags, and a round ↗ icon button at the top-right of the text area. Cards sit three across with `space-4` gaps. On hover the border goes to `line-strong`, the screenshot zooms to 104% inside its frame, and the ↗ turns accent and nudges 2px up-right.
 - **Timeline:** a two-column row per role — dates in `code`/`ink-faint` on the left, role, company and one line of impact on the right — divided by hairlines.
 - **Contact panel:** a `radius-lg` bordered panel with a `headline`, a line of `body`, and buttons for email, GitHub and LinkedIn.
-- Motion: 150ms ease for colour and border changes; the status dot pulses. No lifting or bouncing.
+
+## Motion
+
+Motion is quiet and one-directional. Things fade and settle into place; they never lift, bounce or loop for attention. For `prefers-reduced-motion: reduce`, all movement below is switched off and only the 150ms colour fades remain.
+
+- **State changes:** 150ms ease for colour and border changes: links, buttons, nav items and card borders.
+- **Hero entrance:** on load, the status pill, name, lead, buttons and each stat fade in one after another. Each one goes from 0 opacity, a 6px blur and 8px down to rest over 700ms on `ease-out-soft`, with 90ms between items.
+- **Scroll reveal:** section headers, project cards, capability cards, timeline rows and the contact panel fade up 24px as they enter the viewport. The motion is tied to scroll position, not time, and finishes by 60% of the way in. Where the browser lacks scroll-driven animation, content simply appears.
+- **Spotlight:** the hero's pointer spotlight fades in over 500ms when the pointer enters and out when it leaves. It's mouse and trackpad only, never on touch screens.
+- **Status dot:** a ring expands from the dot to 3× and fades out every 2.4s. It's the only looping motion on the page.
+- **Hover:** inside a card, only its contents move (the screenshot zoom, the ↗ nudge, 300–500ms). The card itself stays put.
+- **Don't:** lift cards on hover, add bounce or spring easing, animate layout or size, loop anything other than the status dot, or add motion that has no reduced-motion fallback.
 
 ## Imagery and icons
 
@@ -140,8 +151,17 @@ No elevation on dark — borders do it. Two effects only.
 
 | Token | Value | Usage |
 | --- | --- | --- |
-| `accent-glow` | dark: `0 0 12px 2px #5cf2c859`<br>light: `0 0 0 3px #08785a26` | The pulsing status dot in the 'Available for new projects' pill. |
+| `accent-glow` | dark: `0 0 12px 2px #5cf2c859`<br>light: `0 0 0 3px #08785a26` | The status dot in the 'Available for new projects' pill. |
 | `focus-ring` | dark: `0 0 0 2px #050607, 0 0 0 4px #5cf2c8`<br>light: `0 0 0 2px #fafafa, 0 0 0 4px #08785a` | Keyboard focus: a 2px page-colour gap, then 2px accent. |
+
+## Motion tokens
+
+| Token | Value | Usage |
+| --- | --- | --- |
+| `ease-out-soft` | `cubic-bezier(0.2, 0.7, 0.2, 1)` | Entrances and hover movement: a fast start that settles gently. |
+| `enter` | 700ms `ease-out-soft`, delay `--i` × 90ms | Hero entrance: from opacity 0, 6px blur and 8px down. |
+| `reveal` | scroll-driven, entry 0–60% | Scroll reveal: from opacity 0 and 24px down. |
+| `ping-slow` | 2.4s, `cubic-bezier(0, 0, 0.2, 1)`, infinite | The status dot ring: 1× at 60% opacity → 3× at 0. |
 
 ## CSS variables
 

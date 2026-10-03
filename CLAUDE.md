@@ -14,7 +14,7 @@ Portfolio site (v2) for Ryan Joshua Charita, full stack developer. Next.js 16.3,
 
 - Dark-first. Mint `accent` is the only colour, used once or twice per screen. The primary button is inverted (`bg-ink text-surface`), not mint.
 - Depth comes from 1px `border-line` borders, never shadows. Card hover changes the border to `line-strong`; nothing lifts or bounces. Transitions are 150ms ease on colour and border.
-- Motion (added beyond the original design doc, at the user's request; all defined in `app/globals.css`):
+- Motion follows the **Motion** and **Motion tokens** sections of the design doc (all defined in `app/globals.css`):
   - Hero items enter with `motion-safe:animate-enter` plus `style={{ "--i": n }}` for an n × 90ms stagger. `--animate-enter` sits in `@theme inline` so `var(--i)` resolves per element.
   - Below-the-fold blocks get `reveal`, a CSS scroll-driven fade-up with no JS. It no-ops where unsupported and for reduced motion.
   - `HeroSpotlight` is a pointer-following mint grid glow.
