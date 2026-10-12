@@ -6,7 +6,7 @@ The portfolio of Ryan Joshua Charita, a full stack developer with 7+ years build
 
 - First person, direct, specific. Say what was built, for whom, and what it changed: "Payroll and HR for Philippine companies — the most complete HRMS in the country."
 - Short labels in mono capitals above everything: `FEATURED WORK`, `CAPABILITIES`, `EXPERIENCE`.
-- Numbers over adjectives: "7+ years", "3 production platforms", "Full stack".
+- Numbers over adjectives: "7+ years", "5 production platforms", "Full stack".
 - CTAs are verbs: "View projects", "Get in touch", "Copy email".
 - Don't: hype, emoji, exclamation marks, "passionate".
 
@@ -50,7 +50,7 @@ Motion is quiet and one-directional. Things fade and settle into place; they nev
 
 ## Imagery and icons
 
-- Project cards use real product screenshots (Payruler, Fleet Management System, Fresh Clinics), cropped to 16:10.
+- Project cards use real product screenshots, cropped to 16:10. Private work with nothing to show gets a plain `surface` frame with a mono "Private codebase" label instead.
 - Icons are 1.5px-stroke line icons in `currentColor` (e.g. Lucide): arrow-up-right, github, linkedin, mail, copy.
 - There is no logo mark. The nav carries the initials "RJ" in Geist 700, and the name is set in `display`.
 

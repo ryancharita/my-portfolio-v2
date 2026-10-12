@@ -26,13 +26,20 @@ function ProjectCard({ project }: { project: Project }) {
     <article className="group flex h-full flex-col rounded-lg border border-line bg-surface-raised p-2 transition-colors duration-150 ease-out hover:border-line-strong">
       {/* The screenshot zooms inside its frame on hover; the card itself never lifts. */}
       <div className="overflow-hidden rounded-sm border border-line">
-        <Image
-          src={asset(project.image)}
-          alt={`${project.name} screenshot`}
-          width={1200}
-          height={750}
-          className="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out-soft motion-safe:group-hover:scale-[1.04]"
-        />
+        {project.image ? (
+          <Image
+            src={asset(project.image)}
+            alt={`${project.name} screenshot`}
+            width={1200}
+            height={750}
+            className="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out-soft motion-safe:group-hover:scale-[1.04]"
+          />
+        ) : (
+          // Private work: a quiet placeholder frame in place of a screenshot.
+          <div className="flex aspect-[16/10] w-full items-center justify-center bg-surface">
+            <p className="font-mono text-eyebrow uppercase text-ink-faint">Private codebase</p>
+          </div>
+        )}
       </div>
 
       <div className="relative flex flex-1 flex-col gap-3 p-4">
