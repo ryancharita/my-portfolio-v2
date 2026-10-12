@@ -12,29 +12,36 @@ export function Experience() {
         />
         <Timeline entries={experience.roles} />
 
-        <p className="mt-12 mb-4 font-mono text-eyebrow uppercase text-ink-faint">
+        <h3 className="mt-12 mb-4 font-mono text-eyebrow uppercase text-ink-faint">
           {experience.education.eyebrow}
-        </p>
-        <Timeline entries={experience.education.entries} />
+        </h3>
+        <Timeline entries={experience.education.entries} heading="h4" />
       </div>
     </section>
   );
 }
 
-function Timeline({ entries }: { entries: TimelineEntry[] }) {
+function Timeline({
+  entries,
+  heading: Heading = "h3",
+}: {
+  entries: TimelineEntry[];
+  // Education entries sit under their own h3, so they drop a level.
+  heading?: "h3" | "h4";
+}) {
   return (
-    <ol className="border-b border-line">
+    <ol>
       {entries.map((entry) => (
         <li
           key={`${entry.org}-${entry.title}`}
-          className="reveal grid gap-2 border-t border-line py-6 sm:grid-cols-[200px_1fr] sm:gap-8"
+          className="reveal grid gap-2 py-8 sm:grid-cols-[200px_1fr] sm:gap-8"
         >
           <p className="font-mono text-code uppercase text-ink-faint sm:pt-1">{entry.dates}</p>
           <div className="flex flex-col gap-1">
-            <h3 className="text-card-title text-ink">
+            <Heading className="text-card-title text-ink">
               {entry.title}
               <span className="font-normal text-ink-muted"> · {entry.org}</span>
-            </h3>
+            </Heading>
             {entry.summary && <p className="text-body text-ink-muted">{entry.summary}</p>}
           </div>
         </li>

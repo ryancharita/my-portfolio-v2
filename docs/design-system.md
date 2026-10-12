@@ -1,12 +1,12 @@
 # Ryan Joshua Charita — design system
 
-The portfolio of Ryan Joshua Charita, a full stack developer with 6+ years building scalable, maintainable web applications. **Version 2 is a dark-first reboot**: a near-black page, one mint signal colour, Geist for words and Geist Mono for labels, and thin 1px borders instead of shadows. It should feel like a well-made developer tool: quiet, precise, and quick to scan. (Inspired by rezky.codes; v1 was the Playfair, mint-and-navy site.)
+The portfolio of Ryan Joshua Charita, a full stack developer with 7+ years building scalable, maintainable web applications. **Version 2 is a dark-first reboot**: a near-black page, one mint signal colour, Geist for words and Geist Mono for labels, and thin 1px borders instead of shadows. It should feel like a well-made developer tool: quiet, precise, and quick to scan. (Inspired by rezky.codes; v1 was the Playfair, mint-and-navy site.)
 
 ## Voice
 
 - First person, direct, specific. Say what was built, for whom, and what it changed: "Payroll and HR for Philippine companies — the most complete HRMS in the country."
 - Short labels in mono capitals above everything: `FEATURED WORK`, `CAPABILITIES`, `EXPERIENCE`.
-- Numbers over adjectives: "6+ years", "3 production platforms", "Full stack".
+- Numbers over adjectives: "7+ years", "3 production platforms", "Full stack".
 - CTAs are verbs: "View projects", "Get in touch", "Copy email".
 - Don't: hype, emoji, exclamation marks, "passionate".
 
@@ -33,7 +33,7 @@ Dark is the default theme; light mirrors it.
 - **Hero:** status pill → name → lead → two buttons → a stats row of three (`stat-label` over a `card-title`-weight value), divided by hairlines.
 - **Status pill:** `radius-full`, `accent-soft` fill, 1px accent border at 30%, a 6px `accent` dot with `accent-glow` and a slow ping ring, and the label `AVAILABLE FOR NEW PROJECTS` in `eyebrow` accent.
 - **Project card:** `surface-raised`, `radius-lg`, 1px `line` border; a 16:10 screenshot on top (`radius-sm`), then `card-title`, two lines of `small` description in `ink-muted`, `code` tech tags, and a round ↗ icon button at the top-right of the text area. Cards sit three across with `space-4` gaps. On hover the border goes to `line-strong`, the screenshot zooms to 104% inside its frame, and the ↗ turns accent and nudges 2px up-right.
-- **Timeline:** a two-column row per role — dates in `code`/`ink-faint` on the left, role, company and one line of impact on the right — divided by hairlines.
+- **Timeline:** a two-column row per role — dates in `code`/`ink-faint` on the left, role, company and one line of impact on the right. No dividers between rows: hairlines would compete with the background grid, so spacing separates them.
 - **Contact panel:** a `radius-lg` bordered panel with a `headline`, a line of `body`, and buttons for email, GitHub and LinkedIn.
 
 ## Motion
@@ -98,7 +98,7 @@ Geist (Google Fonts). Tight tracking on anything 30px and up.
 | `headline` | 36px / 40px | 600 | -0.025em | Have a product that needs building? | The contact-panel headline. |
 | `title` | 30px / 36px | 600 | -0.025em | Selected work | Section titles, left-aligned under a mono eyebrow. |
 | `card-title` | 18px / 28px | 600 | — | Payruler | Project names, timeline roles. |
-| `lead` | 20px / 28px | 400 | — | Full stack developer with 6+ years building scalable, maintainable web applications. | Hero intro in ink-muted; tech names inside it in ink, weight 600. |
+| `lead` | 20px / 28px | 400 | — | Full stack developer with 7+ years building scalable, maintainable web applications. | Hero intro in ink-muted; tech names inside it in ink, weight 600. |
 | `body` | 16px / 24px | 400 | — | A web-based system to manage and monitor taxi fleet operations in Cebu City. | Section intros and paragraphs, in ink-muted. |
 | `small` | 14px / 20px | 500 | — | View projects | Buttons, nav links, card descriptions. |
 

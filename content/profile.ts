@@ -7,7 +7,7 @@ export const site = {
   host: `ryancharita.github.io${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}`,
   title: "Ryan Joshua Charita — Full stack developer",
   description:
-    "Full stack developer with 6+ years building scalable, maintainable web applications with React, Next.js, Node.js and PostgreSQL. Available for new projects.",
+    "Full stack developer with 7+ years building scalable, maintainable web applications with React, Next.js, Node.js and PostgreSQL. Available for new projects.",
   // Rendered by app/og.png/route.tsx.
   ogImage: {
     url: "/og.png",
@@ -44,7 +44,7 @@ export type LeadSegment = { text: string; tech?: boolean };
 export const hero = {
   // Tech segments render in ink at weight 600 so the stack reads at a glance.
   lead: [
-    { text: "Full stack developer with 6+ years building scalable, maintainable web applications with " },
+    { text: "Full stack developer with 7+ years building scalable, maintainable web applications with " },
     { text: "React", tech: true },
     { text: ", " },
     { text: "Next.js", tech: true },
@@ -59,7 +59,7 @@ export const hero = {
     secondary: { label: "Get in touch", href: "#contact" },
   },
   stats: [
-    { label: "Experience", value: "6+ years" },
+    { label: "Experience", value: "7+ years" },
     { label: "Production", value: "3 platforms" },
     { label: "Focus", value: "Full stack" },
   ],
@@ -122,12 +122,16 @@ export const capabilities = {
       name: "Backend",
       skills: [
         "Node.js (Express, NestJS)",
-        "REST APIs",
+        "FastAPI",
+        "Java & Kotlin (security APIs)",
+        "REST & GraphQL APIs",
         "WebSockets",
         "PostgreSQL",
         "MongoDB",
         "Supabase",
         "Prisma & Drizzle ORM",
+        "Snowflake",
+        "Apache Airflow",
       ],
     },
     {
@@ -136,6 +140,8 @@ export const capabilities = {
         "Docker",
         "Git",
         "Vercel",
+        "CircleCI",
+        "Salesforce",
         "Jest",
         "React Testing Library",
         "ESLint & Prettier",
@@ -160,19 +166,35 @@ export type TimelineEntry = {
 export const experience = {
   eyebrow: "Experience",
   title: "Where I've worked",
-  intro: "Six years across product companies and client teams, from junior developer to team lead.",
+  intro: "Seven years across product companies and client teams, from junior developer to team lead.",
   roles: [
+    {
+      dates: "Dec 2025 — Present",
+      title: "Software Engineer",
+      org: "Eclaro Business Solutions",
+      summary:
+        "Build backend services, REST and GraphQL APIs, a Java and Kotlin security API, and Airflow and Snowflake data pipelines for enterprise clients.",
+    },
+    {
+      dates: "Jul 2025 — Feb 2026",
+      title: "Fullstack Web/Mobile Developer",
+      org: "Digital Transformation",
+      summary:
+        "Shipped features for Pasajob and the Gjobs mini-program, and built MyFolio solo from architecture to deployment.",
+    },
     {
       dates: "May 2021 — Jul 2025",
       title: "Mid-level Software Engineer",
       org: "Fresh Clinics",
-      summary: "Built and maintained the web app and mobile API behind the clinic platform.",
+      summary:
+        "Built and maintained the web app and mobile API behind the clinic platform. Led an optimisation that cut load time by 35%.",
     },
     {
       dates: "May 2023 — Oct 2024",
       title: "Senior Front-end Developer",
       org: "Digital Transformation",
-      summary: "Led and mentored the front-end team while delivering for an international client.",
+      summary:
+        "Led the front-end team on an international platform and mentored 10 junior developers.",
     },
     {
       dates: "May 2021 — May 2023",
@@ -197,7 +219,7 @@ export const experience = {
     eyebrow: "Education",
     entries: [
       {
-        dates: "2019",
+        dates: "2015 — 2019",
         title: "BS Computer Science",
         org: "Northwest Samar State University",
       },
