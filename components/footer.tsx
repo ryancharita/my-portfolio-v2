@@ -1,8 +1,8 @@
 import { profile } from "@/content/profile";
-import { ArrowUpRight, Github, Linkedin, Mail } from "@/components/icons";
+import { FileText, Github, Linkedin, Mail } from "@/components/icons";
 
 const link =
-  "inline-flex items-center gap-1.5 rounded-sm text-small font-normal text-ink-muted transition-colors duration-150 ease-out hover:text-accent";
+  "flex items-center gap-1.5 rounded-sm text-small font-normal text-ink-muted transition-colors duration-150 ease-out hover:text-accent";
 
 export function Footer() {
   return (
@@ -32,8 +32,8 @@ export function Footer() {
           </li>
           <li>
             <a href={profile.resume} target="_blank" rel="noopener noreferrer" className={link}>
+              <FileText className="size-4" />
               Résumé
-              <ArrowUpRight className="size-4" />
             </a>
           </li>
         </ul>
