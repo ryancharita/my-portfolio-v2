@@ -24,7 +24,7 @@ export const profile = {
   status: "Available for new projects",
   email: "ryanjoshuacharita@gmail.com",
   resume:
-    "https://drive.google.com/file/d/1juN9vKy3MKcqrvlA5iiVAi37Y7-q0E6f/view?usp=sharing",
+    "https://drive.google.com/file/d/1AW4oeUKaU3vhTbENLwuvHatcjfZgeze9/view?usp=sharing",
   socials: {
     github: "https://github.com/ryancharita",
     linkedin: "https://www.linkedin.com/in/rj-charita-6b4806342/",
